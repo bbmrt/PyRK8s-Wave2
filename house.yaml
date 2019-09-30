@@ -4,22 +4,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <team>-house
-  namespace: <team>
+  name: team06-house
+  namespace: team06
   labels:
-    app: <team>-house
+    app: team06-house
 spec:
   selector:
     matchLabels:
-      app: <team>-house
+      app: team06-house
   replicas: 1
   template:
     metadata:
       labels:
-        app: <team>-house
+        app: team06-house
     spec:
       containers:
-      - name: <team>-house
+      - name: team06-house
         image: docker.io/ibmicpcoc/house:latest
         imagePullPolicy: Always
         env:
@@ -34,12 +34,12 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: team06-collector-config
                 key: COLLECTOR_CONFIG
           - name: INSTRUCTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: team06-collector-config
                 key: INSTRUCTOR_CONFIG
         resources:
           requests:
